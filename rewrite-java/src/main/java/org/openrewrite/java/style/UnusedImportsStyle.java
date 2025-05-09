@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 the original author or authors.
+ * Copyright 2025 the original author or authors.
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,27 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.openrewrite.ai;
+package org.openrewrite.java.style;
 
 import lombok.Value;
-import org.jspecify.annotations.Nullable;
-
-import java.util.List;
+import lombok.With;
+import org.openrewrite.java.JavaStyle;
 
 @Value
-public class CodeEditResponse {
-    List<Choice> choices;
+@With
+public class UnusedImportsStyle implements JavaStyle {
 
-    @Nullable
-    Error error;
-
-    @Value
-    public static class Choice {
-        String text;
-    }
-
-    @Value
-    public static class Error {
-        String message;
-    }
+    /**
+     * Control whether to process Javadoc comments.
+     */
+    boolean processJavadoc;
 }
